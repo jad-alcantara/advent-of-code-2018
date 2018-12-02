@@ -1,6 +1,7 @@
 const processFrequencies = (event) => {
 	const file = event.target.files.item(0);
 	const reader = new FileReader();
+
 	reader.onload = () => {
 		const frequencies = reader.result.split('\n');
 		console.log(frequencies);
@@ -22,7 +23,10 @@ const partOne = frequencies => frequencies.reduce((item1, item2) => parseInt(ite
 
 const partTwo = frequencies => {
 	const uniques = new Set();
-	let step = 1, value = parseInt(frequencies[0]), uniqueFound = false, result = 0;
+	  let step = 1,
+		    value = parseInt(frequencies[0]),
+		    uniqueFound = false,
+		    result = 0;
 
 	uniques.add(0);
 	while(!uniqueFound) {
