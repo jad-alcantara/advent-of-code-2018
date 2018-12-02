@@ -23,10 +23,10 @@ const partOne = frequencies => frequencies.reduce((item1, item2) => parseInt(ite
 
 const partTwo = frequencies => {
 	const uniques = new Set();
-	  let step = 1,
-		    value = parseInt(frequencies[0]),
-		    uniqueFound = false,
-		    result = 0;
+	let step = 1,
+		  value = parseInt(frequencies[0]),
+		  uniqueFound = false,
+		  result = 0;
 
 	uniques.add(0);
 	while(!uniqueFound) {
