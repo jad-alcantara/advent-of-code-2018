@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day 2 - Advent of Code 2018</title>
+    <script src="inventory-management.js"></script>
+</head>
+<body>
+    <h1>Inventory Management</h1>
+    <input type="file" id="input" accept=".txt">
+    <h2 id="checksum">Result goes here</h2>
+    <h2 id="common">Common Letters go here</h2>
+
+    <script>
+        document.getElementById('input').addEventListener('change', processInventory, false);
+    </script>
+</body>
+</html>
