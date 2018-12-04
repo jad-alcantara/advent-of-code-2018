@@ -5,7 +5,6 @@ const processClaims = (event) => {
 	reader.onload = () => {
 		const claims = reader.result.split('\n');
 
-		//Part One
 		const [partOneResult, partTwoResult] = solvePuzzles(claims);
 		document.getElementById('partOne').innerText = `Total Squared Feet : ${partOneResult}`;
 		document.getElementById('partTwo').innerText = `Untouched Claim ID : ${partTwoResult}`;
