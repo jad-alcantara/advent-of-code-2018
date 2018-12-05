@@ -4,8 +4,8 @@ const reduceUnits = (event) => {
 
 	reader.onload = () => {
 		const splitInput = reader.result.split('');
-		const reducedString = doTheReducing(splitInput).reverse();
-		document.getElementById('partOne').innerText = `Reduced String : ${reducedString.join('')} (${reducedString.join('').length})`;
+		const reducedString = doTheReducing(splitInput);
+		document.getElementById('partOne').innerText = `Reduced String : ${reducedString} (${reducedString.length})`;
 
 		const [superReduced, removedCharacter] = filterFirst(splitInput);
 		document.getElementById('partTwo').innerText = `Super Reduced String : ${superReduced} (${superReduced.length}) | Removed ${removedCharacter.toUpperCase()}`;
@@ -37,7 +37,7 @@ const doTheReducing = raw => {
 
 		}
 	}
-	return reducedString;
+	return reducedString.reverse().join('');
 };
 
 const filterFirst = raw => {
@@ -45,15 +45,16 @@ const filterFirst = raw => {
 				copy = raw.slice();
 
 	let winningString = '',
-			winningLength = 10000,
+			winningLength = 0,
 			removedCharacter = '';
 	alphabet.forEach(character => {
 		const test = copy.filter(unit => !(unit.toLowerCase()===character));
 		const newReduced = doTheReducing(test);
 
-		if(newReduced.length < winningLength) {
+		if(winningLength === 0) winningLength = newReduced.length;
+		else if(newReduced.length < winningLength) {
 			winningLength = newReduced.length;
-			winningString = newReduced.reverse().join('');
+			winningString = newReduced;
 			removedCharacter = character;
 		}
 	});
